@@ -2,5 +2,5 @@
 
 ## Setup
 
-- run sass to build css file : `sass --watch index.scss index.css` <br>
-- run parcel to see it in your brower : `parcel ./src/index.html`
+-   run sass to build css file : `sass --watch style.scss style.css` <br>
+-   run parcel to see it in your brower : `parcel ./src/index.html`
