@@ -2,5 +2,8 @@
 
 ## Setup
 
+-   clone the projet
+-   move in the folder
+-   move in the src folder
 -   run sass to build css file : `sass --watch style.scss style.css` <br>
--   run parcel to see it in your brower : `parcel ./src/index.html`
+-   run parcel to see it in your brower : `parcel /index.html`
