@@ -10,55 +10,109 @@ import Button from "./components/button";
 class App extends React.Component {
     constructor(props) {
         super(props);
-        //states
-        this.state = {
-            minute: 0,
-            second: 0,
-            play: false,
-        };
         //interval
         this.intervalID = null;
         //other variables
+        this.defaultTimer = 25 * 60;
         //binding functions
         this.increment = this.handleIncrement.bind(this);
         this.decrement = this.handleDecrement.bind(this);
         this.reset = this.handleReset.bind(this);
         this.start = this.handleStart.bind(this);
+        //states
+        this.state = {
+            second: this.defaultTimer,
+            play: false,
+        };
     }
 
+    //bouton +
     handleIncrement() {
-        this.setState(prefstats => ({
-            minute: ++prefstats.minute,
-        }));
+        if (this.state.play) {
+            this.setState(prefstats => ({
+                second: prefstats.second + 60,
+            }));
+        } else {
+            this.defaultTimer += 60;
+            this.setState(() => ({
+                second: this.defaultTimer,
+            }));
+        }
     }
 
+    //bouton -
     handleDecrement() {
+        //réduction du timer pendant le décompte
+        if (this.state.play) {
+            this.setState(prefstats => ({
+                second: prefstats.second - 60,
+            }));
+            if (this.state.second <= 0) {
+                this.setState(() => ({
+                    second: 0,
+                }));
+            }
+        } else {
+            //réduction du timer par défaut
+            this.defaultTimer -= 60;
+            this.setState(() => ({
+                second: this.defaultTimer,
+            }));
+        }
+    }
+
+    decrease() {
         this.setState(prefstats => ({
-            minute: --prefstats.minute,
+            second: --prefstats.second,
         }));
+        if (this.state.second <= 0) {
+            clearInterval(this.intervalID);
+            this.setState(() => ({
+                second: 0,
+                play: false,
+            }));
+            //active alert
+            console.log("FIN");
+        }
     }
 
     handleReset() {
-        console.log("RESET");
+        if (this.intervalID != null) {
+            clearInterval(this.intervalID);
+        }
+        this.setState(() => ({
+            second: this.defaultTimer,
+            play: false,
+        }));
+        //disable alert
     }
 
     handleStart() {
-        console.log("START");
+        if (!this.state.play) {
+            this.setState(() => ({
+                play: true,
+            }));
+            this.intervalID = setInterval(() => {
+                this.decrease();
+            }, 200);
+        } else {
+            clearInterval(this.intervalID);
+            this.setState(() => ({
+                play: false,
+            }));
+        }
     }
 
     render() {
         return (
             <div className={"container"}>
                 <div className={"container-timer"}>
-                    <Time
-                        minute={this.state.minute}
-                        second={this.state.second}
-                    />
+                    <Time second={this.state.second} />
                     <div className={"buttonsList"}>
                         <Button value={"+"} handleFunc={this.increment} />
                         <Button value={"-"} handleFunc={this.decrement} />
-                        <Button value={"RESET"} handleFunc={this.decrement} />
-                        <Button value={"PLAY"} handleFunc={this.decrement} />
+                        <Button value={"RESET"} handleFunc={this.reset} />
+                        <Button value={"PLAY"} handleFunc={this.start} />
                     </div>
                 </div>
             </div>
