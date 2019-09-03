@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+}
+
+#root {
+    .container {
+        position: relative;
+        .container-timer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            padding-top: 2em;
+            padding-bottom: 2em;
+            margin-left: 10%;
+            margin-right: 10%;
+
+            border: 0.2em solid grey;
+            border-radius: 3em;
+            .timer {
+                color: blue;
+                font-size: 7em;
+            }
+
+            .buttonsList {
+                display: flex;
+                flex-direction: column;
+                button {
+                    margin: 0.3em;
+                    height: 2em;
+                    width: 4em;
+                    font-size: 3em;
+                }
+            }
+        }
+        .alert {
+            position: absolute;
+        }
+    }
+}
