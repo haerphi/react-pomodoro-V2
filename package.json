@@ -4,7 +4,7 @@
   "description": "A little pomodoro",
   "main": "index.js",
   "scripts": {
-    "buildStart": "npm i && sass ./src/style.scss ./src/style.css && parcel build ./src/index.html"
+    "buildStart": "sass ./src/style.scss ./src/style.css && parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     }
   },
   "dependencies": {
+    "parcel-bundler": "^1.12.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "sass": "^1.23.0-module.beta.1"
