@@ -4,7 +4,7 @@
   "description": "A little pomodoro",
   "main": "index.js",
   "scripts": {
-    "buildStart": "sass ./src/style.scss ./src/style.css && parcel build ./src/index.html"
+    "buildStart": "npm i && sass ./src/style.scss ./src/style.css && parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
