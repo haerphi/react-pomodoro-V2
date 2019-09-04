@@ -4,7 +4,7 @@
   "description": "A little pomodoro",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildStart": "sass ./src/style.scss ./src/style.css && parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@becode/eslint-config": "^0.5.2",
     "babel-eslint": "^10.0.3",
+    "cssnano": "^4.1.10",
     "eslint": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
@@ -40,9 +41,7 @@
   },
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "scripts": {
-    "buildStart": "sass ./src/style.scss ./src/style.css && parcel ./src/index.html"
+    "react-dom": "^16.9.0",
+    "sass": "^1.23.0-module.beta.1"
   }
 }
