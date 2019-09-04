@@ -96,7 +96,7 @@ class App extends React.Component {
             second: this.defaultTimer,
             play: false,
         }));
-        //disable alert
+        //disable aler
     }
 
     handleStart() {
