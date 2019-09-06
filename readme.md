@@ -8,7 +8,5 @@
 -   run sass to build css file : `sass --watch style.scss style.css`
 -   run parcel to see it in your brower : `parcel /index.html`
 
-## Todo
-
--   modal alert
--   format time
+## Netlify
+[haerphi-pomodoro](https://haerphi-7d934e.netlify.com)
