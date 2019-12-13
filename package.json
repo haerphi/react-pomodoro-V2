@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/haerphi/react-pomodoro-V2#readme",
   "devDependencies": {
-    "@becode/eslint-config": "^0.5.2",
+    "@becode/eslint-config": "^0.8.2",
     "babel-eslint": "^10.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^6.3.0",
